@@ -1,8 +1,11 @@
 const express=require('express');
+const bodyParser=require('body-parser');
+
 const LanguageTranslatorV3 = require('ibm-watson/language-translator/v3');
 const { IamAuthenticator } = require('ibm-watson/auth');
+
+
 require('dotenv').config();
-const translateRoute=express.Router();
 const CREDENTIALS=JSON.parse(process.env.CREDENTIALS);
     const languageTranslator = new LanguageTranslatorV3({
       version:'2018-05-01',
@@ -13,23 +16,23 @@ const CREDENTIALS=JSON.parse(process.env.CREDENTIALS);
     });
     
 
-          
+const translateRoute=express.Router();  
+translateRoute.use(bodyParser.json())
 
 translateRoute.route('/')
  .get(function(req,res){
-      const translateParams = {
-        text: 'ஹலோ, நீங்கள் எப்படி இன்று?',
-        source:'hindi',
-        target: 'english',
-        };
+      const translateParams = req.body;
       languageTranslator.translate(translateParams)
         .then(translationResult => {
+          res.statusCode=200;
+          res.setHeader("content-type","application/json");
+          res.json(translationResult.result.translations);
           console.log(JSON.stringify(translationResult.result.translations, null, 2));
         })
         .catch(err => {
-          console.log('error:', err);
+          res.statusCode=500;
+          res.end("error :",err);
         });
-      console.log("translate request");
  })
 
  module.exports=translateRoute;
