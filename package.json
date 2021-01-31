@@ -1,0 +1,24 @@
+{
+  "name": "languagetranslator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naikprasanna/LanguageTranslator.git"
+  },
+  "author": "Prasanna naik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naikprasanna/LanguageTranslator/issues"
+  },
+  "homepage": "https://github.com/naikprasanna/LanguageTranslator#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ibm-watson": "^6.0.0"
+  }
+}
