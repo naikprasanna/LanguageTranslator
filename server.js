@@ -3,7 +3,9 @@ const express= require('express');
 const app=express();
 const translateRoute= require('./routes/translate');
 const indexRouter= require('./routes/index')
-const PORT=3000;
+const PORT=process.env.PORT;
+
+
 
 
 //ROUTES

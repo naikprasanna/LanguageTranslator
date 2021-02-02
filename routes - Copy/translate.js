@@ -12,8 +12,7 @@ translateRoute.route('/')
       .then((result)=>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        console.log("the final result"+result);
-        res.send(result);
+        res.json(result);
         })
         .catch(err => {
           res.statusCode=500;
