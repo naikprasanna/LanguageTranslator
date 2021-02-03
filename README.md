@@ -32,16 +32,25 @@ steps to set the server running:
 WORKING OF THE SERVER;
 
 node-cache:
+
      >> It stores all the requested translations temporarily,    **using this because it gives better performance**
+
      >> When /translate request is made with JSON data ,first the server checks if there is an older request stored in in-memory cache
 mysql-db:
+
      >> if it is not present in cache next the server checks if it is present in phphmyadmin mysql server of in  database of name you gave 
+
 IBM-API:
+
      >> if not present in db, then last step is to request the translation using API
+
      >>after getting the translation, it is stored in both mysql db and in-memory node-cache
+
      >>It is stored in this way to make the cache persistant in cases such as:
+
         **when the server goes down or restarts the stored cache in node-cache in-memory will wipe out and there will be no way of accessing them
           In order to avoid this situation mysql db stores all the cache side by side node-cache
+
     >>after accessing the cache from mysql-db the server also stores the chache in node-cache for better performance
 
 
@@ -49,5 +58,6 @@ IBM-API:
 
 COMING FEATURES:
     >> I am currently working on hosting my server with necessary front-end on heroku
+    
     >> also working on a smart-caching algorithm which pre-caches input/output based on users past used translation languages for faster performance
     
