@@ -57,7 +57,8 @@ IBM-API:
 
 
 COMING FEATURES:
+
     >> I am currently working on hosting my server with necessary front-end on heroku
-    
+
     >> also working on a smart-caching algorithm which pre-caches input/output based on users past used translation languages for faster performance
     
