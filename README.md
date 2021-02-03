@@ -62,3 +62,10 @@ COMING FEATURES:
 
     >> also working on a smart-caching algorithm which pre-caches input/output based on users past used translation languages for faster performance
     
+
+
+NOTE:
+
+**ALL THE THINGS RELATED TO SQL DB,HOST,PORT CAN BE CHANGED IN THE .ENV FILE**
+
+**AND CURRENTLY I HAVE KEPT THE IBM-TRANSLATER API KEY IN .ENV FILE FOR YOU TO USE AND CHECK , WHICH IN THE FUTURE I WILL REMOVE**

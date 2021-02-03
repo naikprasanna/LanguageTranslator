@@ -27,7 +27,8 @@ class Cache {
       return this.getdata(key, storeFunction)           //if cache is found in mysql then value is returned and saved to inmemory node-cache
         .then((result) => {
           if (result.length > 0) {
-            console.log("getting from mysql \n Translation  "+key.target+" :  => ", result[0].nvalue);
+            this.cache.set(key, result);
+            console.log("getting from mysql \n Translation  "+target+" :  => ", result[0].nvalue);
             return result[0].nvalue;                        //returning if value is found in persistant cache in mysql dbms
           } else {
             return storeFunction()
