@@ -1,19 +1,20 @@
-
-const cacheService= require('../public/cacheservice');
+const cacheService = require('../public/cacheservice');
 const LanguageTranslatorV3 = require('ibm-watson/language-translator/v3');
-const { IamAuthenticator } = require('ibm-watson/auth');
-
+const {
+  IamAuthenticator
+} = require('ibm-watson/auth');
+const dbfunctions=require('../public/sqlfunctions');
 
 require('dotenv').config();
-const CREDENTIALS=JSON.parse(process.env.CREDENTIALS);
-    const languageTranslator = new LanguageTranslatorV3({
-      version:'2018-05-01',
-      authenticator: new IamAuthenticator({
-        apikey: CREDENTIALS.apikey,
-      }),
-      serviceUrl:CREDENTIALS.url,
-    });
-    
+const CREDENTIALS = JSON.parse(process.env.CREDENTIALS);
+const languageTranslator = new LanguageTranslatorV3({
+  version: '2018-05-01',
+  authenticator: new IamAuthenticator({
+    apikey: CREDENTIALS.apikey,
+  }),
+  serviceUrl: CREDENTIALS.url,
+});
+
 
 
 
@@ -22,21 +23,18 @@ const cache = new cacheService(ttl); // Create a new cache service instance
 
 
 
- const fetchData={
- translation(translateParams){
-  return cache.get(translateParams,()=>{
-         return languageTranslator.translate(translateParams)
-             .then(translationResult => {
-                 return translationResult.result.translations[0].translation;
-    });
-  }).then((value)=>{
-     return value;
-  })
- }
+const fetchData = {
+  translation(translateParams) {
+    return cache.get(translateParams, () => {
+      return languageTranslator.translate(translateParams)
+        .then(translationResult => {
+          return translationResult.result.translations[0].translation;
+        });
+    }).then((value) => {
+      return value;
+    })
+  }
 }
 
-  
-module.exports =fetchData;
 
-
-
+module.exports = fetchData;
