@@ -11,7 +11,8 @@ var db = mysql.createConnection({
   host: MYSQL_HOST,
   user: MYSQL_USER,
   password: MYSQL_PASSWORD,
-  database: 'mmm', //put your db name here, then proceed to /createtable
+  database:"kkb",//put your db name here, then proceed to /createtable
+  
 });
 
 //connects with database
@@ -21,6 +22,7 @@ db.connect(function (err) {
   } else {
     console.log("Connected!");
   }
+
 });
 
 module.exports = db;

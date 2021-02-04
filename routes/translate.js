@@ -9,19 +9,19 @@ translateRoute.use(bodyParser.json());
 
 
 //Route:=> localhost:3000/translate/
-translateRoute.route("/").get(function (req, res) {
+translateRoute.route("/").get(function (req, res,next) {
   const translateParams = req.body;
   fetchData
     .translation(translateParams)
     .then((result) => {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
-      console.log("STATUS : SUCCESS");
       res.send(result);
     })
-    .catch((err) => {
-      res.statusCode = 500;
-      res.end("error :", err);
+    .catch((error) => {
+     console.log(error);
+    
+      
     });
 });
 

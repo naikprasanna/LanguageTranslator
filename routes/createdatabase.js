@@ -5,7 +5,7 @@ const db = require('../public/mysql');
 
 createDatabase.route('/:dbname')
     .get((req, res) => {
-        db.query("CREATE DATABASE IF NOT EXISTS "+req.params.dbname+" ", function (err, result) {
+        db.query("CREATE DATABASE IF NOT EXISTS "+req.params.dbname+" CHARACTER SET utf8 COLLATE utf8_unicode_ci ", function (err, result) {
             if (err) throw err;
             console.log("Database created");
             console.log(result);
@@ -16,13 +16,11 @@ createDatabase.route('/:dbname')
     })
 createDatabase.route('/:dbname/createtable')
     .get((req, res) => {
-        var sql = "CREATE TABLE IF NOT EXISTS translations (nkey VARCHAR(555), nvalue VARCHAR(555))";
+var sql = "CREATE TABLE IF NOT EXISTS translations (nkey VARCHAR(555), nvalue VARCHAR(555))";
         db.query(sql, function (err, result) {
             if (err) {
                 console.log(err);
-            }else{
-
-            
+            }else{  
             console.log("Table created");
             console.log(result);
             res.statusCode = 200;
