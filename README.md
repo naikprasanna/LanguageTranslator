@@ -2,7 +2,9 @@
 
 Things needed to set up this;
 1) NODEjs
+
 2) Xampp  for sql server
+
 3)POSTMAN to check server responses
 
 
