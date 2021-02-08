@@ -71,3 +71,6 @@ NOTE:
 **ALL THE THINGS RELATED TO SQL DB,HOST,PORT CAN BE CHANGED IN THE .ENV FILE**
 
 **AND CURRENTLY I HAVE KEPT THE IBM-TRANSLATER API KEY IN .ENV FILE FOR YOU TO USE AND CHECK , WHICH IN THE FUTURE I WILL REMOVE**
+
+**kindly node that ibm watson only supports these languages, other languages will return empty bofy**
+Arabic, Bengali, Bulgarian, Catalan, Chinese (Simplified & Traditional), Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Gujarati, Hebrew, Hindi, Hungarian, Irish, Italian, Indonesian, Japanese, Korean, Latvian, Lithuanian, Malay, Maltese, Malayalam, Nepali, Norwegian, Polish, Portuguese (Brazil), Romanian, Russian, Sinhala, Slovak, Slovenian, Spanish, Swedish, Tamil, Telugu, Thai, Turkish, Urdu, and Vietnamese
